@@ -12,17 +12,17 @@ export const ToDoApp: React.FC = () => {
         setTodoText(EMPTY_TODO);
     }
 
-    return <>
+    return <div id={'todo-app'}>
         <h1>My Dashboard</h1>
-        <form>
+        <form id={'todo-form'}>
             <input type={'text'} placeholder={'Enter your task'} value={todoText} onChange={onTextChange}/>
             <button onClick={onAddClick}>ADD</button>
         </form>
-        <div>
+        <div id={'all-todos'}>
             <h1>All ToDos</h1>
             <div>
                 {todos.map((todo, key) => <p>{todo}</p>)}
             </div>
         </div>
-    </>
+    </div>
 }
