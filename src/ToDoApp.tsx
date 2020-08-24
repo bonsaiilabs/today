@@ -21,7 +21,7 @@ export const ToDoApp: React.FC = () => {
         <div id={'all-todos'}>
             <h1>All ToDos</h1>
             <div>
-                {todos.map((todo, key) => <p>{todo}</p>)}
+                {todos.map((todo, key) => <p key={key}>{todo}</p>)}
             </div>
         </div>
     </div>

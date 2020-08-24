@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {cleanup, render, screen } from '@testing-library/react'
+import {cleanup, render, screen} from '@testing-library/react'
 import {ToDoApp} from "./ToDoApp";
 import userEvent from '@testing-library/user-event'
 
@@ -36,6 +36,13 @@ describe('When a user interacts with the form', () => {
         expect(screen.getByRole('textbox')).toHaveValue(todo)
     })
 
-    it.skip('adds a todo when a user clicks on the "ADD" button', () => {
+    it('adds a todo when a user clicks on the "ADD" button', () => {
+        render(<ToDoApp/>)
+        const todo: string = "first task"
+        userEvent.type(screen.getByRole('textbox'), todo)
+        expect(screen.getByRole('textbox')).toHaveValue(todo)
+
+        userEvent.click(screen.getByRole("button"))
+        expect(screen.getByRole('textbox')).toBeEmptyDOMElement()
     })
 })
