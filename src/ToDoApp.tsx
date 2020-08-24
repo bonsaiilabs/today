@@ -25,9 +25,9 @@ export const ToDoApp: React.FC = () => {
         />
         <button onClick={onAddClick}>ADD</button>
       </form>
-      <div id={"all-todos"}>
+      <div>
         <h1>All ToDos</h1>
-        <div>
+        <div id={"all-todos"}>
           {todos.map((todo, key) => (
             <p key={key}>{todo}</p>
           ))}

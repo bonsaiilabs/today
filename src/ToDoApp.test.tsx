@@ -44,4 +44,23 @@ describe("When a user interacts with the form", () => {
     userEvent.click(screen.getByRole("button"));
     expect(screen.getByRole("textbox")).toBeEmptyDOMElement();
   });
+
+  it("lists down all the todos", () => {
+    const { container } = render(<ToDoApp />);
+    const todos: string[] = ["todo 1", "todo 2", "todo 3"];
+    todos.forEach((todo: string) => {
+      userEvent.type(screen.getByRole("textbox"), todo);
+      expect(screen.getByRole("textbox")).toHaveValue(todo);
+      userEvent.click(screen.getByRole("button"));
+      expect(screen.getByRole("textbox")).toBeEmptyDOMElement();
+    });
+    let querySelector = container.querySelector("#all-todos");
+    expect(querySelector).not.toBeNull();
+
+    // Use of ! => https://stackoverflow.com/a/63084260/379235
+    expect(querySelector!.childNodes.length).toBe(todos.length);
+    for (let i = 0; i < querySelector!.childNodes.length; i++) {
+      expect(querySelector!.childNodes.item(i).textContent).toBe(todos[i]);
+    }
+  });
 });
