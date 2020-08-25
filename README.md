@@ -1,3 +1,4 @@
+[![Board Status](https://dev.azure.com/harithimanshu/06b7d9f7-bd09-486f-b731-a102cd074058/b256a72a-fb04-4157-9644-9a0e9d8ed608/_apis/work/boardbadge/a7374faa-5ea3-4816-ae6b-deb8ffe65b6b)](https://dev.azure.com/harithimanshu/06b7d9f7-bd09-486f-b731-a102cd074058/_boards/board/t/b256a72a-fb04-4157-9644-9a0e9d8ed608/Microsoft.RequirementCategory)
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
