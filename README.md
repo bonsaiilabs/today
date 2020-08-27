@@ -4,5 +4,13 @@
 
 Get the code
 ```sh
-git checkout https://github.com/hhimanshu/the-todo-app/tree/1-the-basic-structure
+https://github.com/hhimanshu/the-todo-app/tree/1-the-basic-structure
+```
+
+### 2-state-with-redux
+- The todos state migrates to Redux from `useState()`
+
+Get the code
+```shell script
+https://github.com/hhimanshu/the-todo-app/tree/2-state-with-redux
 ```

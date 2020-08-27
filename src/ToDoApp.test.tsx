@@ -66,7 +66,14 @@ describe("When a user interacts with the form", () => {
     let querySelector = container.querySelector("#all-todos");
     expect(querySelector).not.toBeNull();
 
-    // Use of ! => https://stackoverflow.com/a/63084260/379235
+    /**
+     * ToDo: The following assertions are happening since the redux store
+     * is not reset between tests, that's why the previous "first task"
+     * appears in this test as well.
+     * To solve this, we need a way as described in
+     * https://testing-library.com/docs/example-react-redux
+     */
+
     // + 1 from previous add of todo
     expect(querySelector!.childNodes.length).toBe(todos.length + 1);
 
