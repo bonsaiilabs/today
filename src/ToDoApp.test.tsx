@@ -1,5 +1,4 @@
 import React from "react";
-
 import { cleanup, render, screen } from "@testing-library/react";
 import { ToDoApp } from "./ToDoApp";
 import userEvent from "@testing-library/user-event";
