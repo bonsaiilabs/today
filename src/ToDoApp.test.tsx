@@ -13,6 +13,15 @@ const App: React.FC = () => (
   </Provider>
 );
 
+function addTodos(todos: string[]) {
+  todos.forEach((todo: string) => {
+    userEvent.type(screen.getByRole("textbox"), todo);
+    expect(screen.getByRole("textbox")).toHaveValue(todo);
+    userEvent.click(screen.getByRole("button"));
+    expect(screen.getByRole("textbox")).toBeEmptyDOMElement();
+  });
+}
+
 describe("When the page initially loaded", () => {
   it('renders the "My Dashboard" title on the main page', () => {
     const { queryByText } = render(<App />);
@@ -55,12 +64,7 @@ describe("When a user interacts with the form", () => {
   it("lists down all the todos", () => {
     const { container } = render(<App />);
     const todos: string[] = ["todo 1", "todo 2", "todo 3"];
-    todos.forEach((todo: string) => {
-      userEvent.type(screen.getByRole("textbox"), todo);
-      expect(screen.getByRole("textbox")).toHaveValue(todo);
-      userEvent.click(screen.getByRole("button"));
-      expect(screen.getByRole("textbox")).toBeEmptyDOMElement();
-    });
+    addTodos(todos);
 
     let querySelector = container.querySelector("#all-todos");
     expect(querySelector).not.toBeNull();
