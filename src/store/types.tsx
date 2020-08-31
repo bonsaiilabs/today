@@ -9,12 +9,12 @@ export interface ToDos {
 export const ADD_TODO = "ADD_TODO";
 export const LOAD_TODOS = "LOAD_TODOS";
 
-interface AddTodoAction {
+export interface AddTodoAction {
   type: typeof ADD_TODO;
   payload: ToDo;
 }
 
-interface LoadTodoAction {
+export interface LoadTodoAction {
   type: typeof LOAD_TODOS;
   payload: ToDos;
 }

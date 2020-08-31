@@ -1,6 +1,6 @@
 import { ADD_TODO, LOAD_TODOS, ToDos, ToDoTypes } from "../store/types";
 
-const initialState: ToDos = { all: [] };
+export const initialState: ToDos = { all: [] };
 
 export default (state = initialState, action: ToDoTypes) => {
   switch (action.type) {
