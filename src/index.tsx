@@ -2,14 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
-import { ToDoApp } from "./ToDoApp";
 import { store } from "./store";
 import { Provider } from "react-redux";
+import { Today } from "./Today";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <ToDoApp />
+      <Today />
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
