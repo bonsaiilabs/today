@@ -34,7 +34,9 @@ export const ToDoApp: React.FC = () => {
         <h1>All ToDos</h1>
         <div id={"all-todos"}>
           {todos.all.map((todo, key) => (
-            <p key={key}>{todo.text}</p>
+            <div key={key}>
+              <input type={"checkbox"} /> <span>{todo.text}</span>
+            </div>
           ))}
         </div>
       </div>
