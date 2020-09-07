@@ -1,13 +1,38 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  src: local("OpenSans-Regular.ttf"),
+    url("./fonts/OpenSans-Regular.ttf") format("ttf");
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+@font-face {
+  font-family: "Open Sans", sans-serif;
+  font-style: italic;
+  font-weight: normal;
+  src: local("OpenSans-Italic.ttf"),
+    url("./fonts/OpenSans-Italic.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  src: local("OpenSans-Light.ttf"),
+    url("./fonts/OpenSans-Light.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  src: local("OpenSans-Bold.ttf"),
+    url("./fonts/OpenSans-Bold.ttf") format("ttf");
+}
+
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
