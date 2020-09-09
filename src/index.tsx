@@ -4,12 +4,12 @@ import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import { store } from "./store";
 import { Provider } from "react-redux";
-import { Today } from "./Today";
+import App from "./App";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Today />
+      <App />
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

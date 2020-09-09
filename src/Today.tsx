@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addTodo } from "./actions";
-import { RootState } from "./store";
-import Layout from "./components/Layout";
+import { ToDos } from "./store/types";
 
-export const Today: React.FC = () => {
+export const Today: (todos: ToDos) => JSX.Element = ({ all }) => {
   const EMPTY_TODO: string = "";
   const [todoText, setTodoText] = useState<string>(EMPTY_TODO);
-  const todos = useSelector((state: RootState) => state.todos);
   const dispatch = useDispatch();
 
   const onTextChange = (e: React.FormEvent<HTMLInputElement>): void =>
@@ -20,32 +18,28 @@ export const Today: React.FC = () => {
   };
 
   return (
-    <Layout>
-      {
-        <div id={"todo-app"}>
-          <h1>My Dashboard</h1>
-          <form id={"todo-form"}>
-            <input
-              type={"text"}
-              placeholder={"Enter your task"}
-              value={todoText}
-              onChange={onTextChange}
-            />
-            <button onClick={onAddClick}>ADD</button>
-          </form>
-          <div>
-            <h1>All ToDos</h1>
-            <div id={"all-todos"}>
-              {todos.all.map((todo, key) => (
-                <div key={key}>
-                  <input type={"checkbox"} />
-                  <span>{todo.text}</span>
-                </div>
-              ))}
+    <div id={"todo-app"}>
+      <h1>My Dashboard</h1>
+      <form id={"todo-form"}>
+        <input
+          type={"text"}
+          placeholder={"Enter your task"}
+          value={todoText}
+          onChange={onTextChange}
+        />
+        <button onClick={onAddClick}>ADD</button>
+      </form>
+      <div>
+        <h1>All ToDos</h1>
+        <div id={"all-todos"}>
+          {all.map((todo, key) => (
+            <div key={key}>
+              <input type={"checkbox"} />
+              <span>{todo.text}</span>
             </div>
-          </div>
+          ))}
         </div>
-      }
-    </Layout>
+      </div>
+    </div>
   );
 };
