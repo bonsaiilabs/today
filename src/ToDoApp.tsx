@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo } from "./actions";
+import { addTodo } from "./actions/todayActions";
 import { RootState } from "./store";
 
 export const ToDoApp: React.FC = () => {

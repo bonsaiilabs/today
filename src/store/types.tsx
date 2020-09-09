@@ -20,3 +20,12 @@ export interface LoadTodoAction {
 }
 
 export type ToDoTypes = AddTodoAction | LoadTodoAction;
+
+export type Header = "Today" | "Notes";
+export const TODAY: Header = "Today";
+export const NOTES: Header = "Notes";
+export const Headers: Header[] = [TODAY, NOTES];
+
+export interface HeaderChangeAction {
+  type: Header;
+}

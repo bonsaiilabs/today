@@ -1,13 +1,15 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
-import todoReducer from "../reducers/todoReducer";
+import todoReducer from "../reducers/todayReducer";
 import * as storage from "redux-storage";
 // @ts-ignore
 import createEngine from "redux-storage-engine-indexed-db";
 import { ToDos } from "./types";
-import { loadToDos } from "../actions";
+import { loadToDos } from "../actions/todayActions";
+import headerReducer from "../reducers/headerReducer";
 
 export const rootReducer = combineReducers({
   todos: todoReducer,
+  header: headerReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

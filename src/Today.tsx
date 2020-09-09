@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTodo } from "./actions";
+import { addTodo } from "./actions/todayActions";
 import { ToDos } from "./store/types";
 
 export const Today: (todos: ToDos) => JSX.Element = ({ all }) => {

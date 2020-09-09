@@ -1,5 +1,5 @@
 import { ADD_TODO, LOAD_TODOS, ToDo, ToDos } from "../store/types";
-import { addTodo, loadToDos } from "./index";
+import { addTodo, loadToDos } from "./todayActions";
 
 describe("ToDo Actions", () => {
   it("should create an action to add a todo", () => {

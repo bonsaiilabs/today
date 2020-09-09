@@ -1,30 +1,34 @@
 import React from "react";
 import styles from "./Layout.module.css";
+import { Header, Headers } from "../store/types";
 
-// todo (h2): Figure out the return type of children
-const Layout: React.FC = ({ children }) => {
+export interface LayoutProps {
+  selected: Header;
+}
+
+const Layout: ({ selected }: LayoutProps) => JSX.Element = ({
+  selected,
+}: LayoutProps) => {
   return (
     <div>
-      <Header selectedHeader={headerTitles[0]} />
-      <div id={"main_content"}>{children}</div>
+      <AppHeader selectedHeader={selected} />
+      <div id={"main_content"}>Coming Soon</div>
       <Footer />
     </div>
   );
 };
 export default Layout;
 
-const headerTitles = ["Today", "Notes"];
-
 interface HeaderProps {
-  selectedHeader: string;
+  selectedHeader: Header;
 }
 
-const Header: ({ selectedHeader }: HeaderProps) => JSX.Element = ({
+const AppHeader: ({ selectedHeader }: HeaderProps) => JSX.Element = ({
   selectedHeader,
 }: HeaderProps) => {
   return (
     <header className={styles.header}>
-      {headerTitles.map((header, key) => (
+      {Headers.map((header, key) => (
         <a
           key={key}
           href={"/"}

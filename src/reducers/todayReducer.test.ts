@@ -1,4 +1,4 @@
-import reducer, { initialState } from "./todoReducer";
+import reducer, { initialState } from "./todayReducer";
 import {
   ADD_TODO,
   AddTodoAction,
