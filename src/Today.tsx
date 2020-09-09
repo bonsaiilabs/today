@@ -38,7 +38,8 @@ export const Today: React.FC = () => {
             <div id={"all-todos"}>
               {todos.all.map((todo, key) => (
                 <div key={key}>
-                  <input type={"checkbox"} /> <span>{todo.text}</span>
+                  <input type={"checkbox"} />
+                  <span>{todo.text}</span>
                 </div>
               ))}
             </div>

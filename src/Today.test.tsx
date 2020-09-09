@@ -83,7 +83,7 @@ describe("When a user interacts with the form", () => {
     // check todos from this test starting from first node
     const expectedToDos = ["first task", ...todos];
     for (let i = 0; i < querySelector!.childNodes.length; i++) {
-      expect(querySelector!.childNodes.item(i).textContent).toBe(
+      expect(querySelector!.childNodes.item(i).lastChild!.textContent).toBe(
         expectedToDos[i]
       );
     }
