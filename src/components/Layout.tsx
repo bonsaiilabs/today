@@ -27,7 +27,7 @@ const Header: ({ selectedHeader }: HeaderProps) => JSX.Element = ({
       {headerTitles.map((header, key) => (
         <a
           key={key}
-          href={"#"}
+          href={"/"}
           className={header === selectedHeader ? styles.selectedHeader : "none"}
         >
           {header}
