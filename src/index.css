@@ -30,9 +30,19 @@
     url("./fonts/OpenSans-Bold.ttf") format("ttf");
 }
 
+:root {
+  --primary: #6d57f1;
+  --secondary: #000000;
+}
+
 body {
   margin: 0;
   font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration-line: none;
+  color: var(--secondary);
 }
