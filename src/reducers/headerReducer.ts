@@ -1,6 +1,6 @@
 import { Header, HeaderChangeAction, NOTES, TODAY } from "../store/types";
 
-export const initialState: Header = NOTES;
+export const initialState: Header = TODAY;
 
 export default (state = initialState, action: HeaderChangeAction) => {
   switch (action.type) {

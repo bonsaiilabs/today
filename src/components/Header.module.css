@@ -1,0 +1,30 @@
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.selectedHeader {
+  color: var(--primary);
+  padding-bottom: 0.5rem;
+  border-radius: 2px;
+  border-bottom: 6px solid var(--primary);
+}
+
+.header :first-child {
+  margin-right: 3em;
+}
+
+button {
+  width: 3vw;
+  height: 3vh;
+  background: none !important;
+  border: none;
+  cursor: pointer;
+}
+
+/* https://stackoverflow.com/a/21758143/379235 */
+button:focus {
+  outline: 0;
+}

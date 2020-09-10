@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addTodo } from "./actions/todayActions";
-import { ToDos } from "./store/types";
+import { useDispatch, useSelector } from "react-redux";
+import { addTodo } from "../actions/todayActions";
+import { RootState } from "../store";
 
-export const Today: (todos: ToDos) => JSX.Element = ({ all }) => {
+export const Today: React.FC = () => {
+  const todos = useSelector((state: RootState) => state.todos);
   const EMPTY_TODO: string = "";
   const [todoText, setTodoText] = useState<string>(EMPTY_TODO);
   const dispatch = useDispatch();
@@ -32,7 +33,7 @@ export const Today: (todos: ToDos) => JSX.Element = ({ all }) => {
       <div>
         <h1>All ToDos</h1>
         <div id={"all-todos"}>
-          {all.map((todo, key) => (
+          {todos.all.map((todo, key) => (
             <div key={key}>
               <input type={"checkbox"} />
               <span>{todo.text}</span>

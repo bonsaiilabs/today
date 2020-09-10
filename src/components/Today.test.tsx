@@ -1,15 +1,15 @@
 import React from "react";
 import { cleanup, render, screen } from "@testing-library/react";
-import { ToDoApp } from "./ToDoApp";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
-import { store } from "./store";
+import { store } from "../store";
+import { Today } from "./Today";
 
 afterEach(cleanup);
 
 const App: React.FC = () => (
   <Provider store={store}>
-    <ToDoApp />
+    <Today />
   </Provider>
 );
 

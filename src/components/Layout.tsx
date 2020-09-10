@@ -1,45 +1,18 @@
 import React from "react";
 import styles from "./Layout.module.css";
-import { Header, Headers } from "../store/types";
+import Header from "./Header";
 
-export interface LayoutProps {
-  selected: Header;
-}
-
-const Layout: ({ selected }: LayoutProps) => JSX.Element = ({
-  selected,
-}: LayoutProps) => {
+// todo (h2): figure out type of children
+const Layout: React.FC = ({ children }) => {
   return (
     <div>
-      <AppHeader selectedHeader={selected} />
-      <div id={"main_content"}>Coming Soon</div>
+      <Header />
+      <div id={"main_content"}>{children}</div>
       <Footer />
     </div>
   );
 };
 export default Layout;
-
-interface HeaderProps {
-  selectedHeader: Header;
-}
-
-const AppHeader: ({ selectedHeader }: HeaderProps) => JSX.Element = ({
-  selectedHeader,
-}: HeaderProps) => {
-  return (
-    <header className={styles.header}>
-      {Headers.map((header, key) => (
-        <a
-          key={key}
-          href={"/"}
-          className={header === selectedHeader ? styles.selectedHeader : "none"}
-        >
-          {header}
-        </a>
-      ))}
-    </header>
-  );
-};
 
 const Footer: React.FC = () => {
   return (

@@ -1,20 +1,17 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "./store";
-import Layout, { LayoutProps } from "./components/Layout";
-import { Today } from "./Today";
+import Layout from "./components/Layout";
+import { Today } from "./components/Today";
+import Notes from "./components/Notes";
+import { NOTES, TODAY } from "./store/types";
 
 const App = () => {
-  const todos = useSelector((state: RootState) => state.todos);
-  const header = useSelector((state: RootState) => state.header);
-
-  const layoutProps: LayoutProps = {
-    selected: header,
-  };
-
+  const selectedHeader = useSelector((state: RootState) => state.header);
   return (
-    <Layout {...layoutProps}>
-      <Today all={todos.all} />
+    <Layout>
+      {selectedHeader === TODAY && <Today />}
+      {selectedHeader === NOTES && <Notes />}
     </Layout>
   );
 };
