@@ -17,11 +17,13 @@
 }
 
 button {
-  width: 3vw;
+  width: 4vw;
   height: 3vh;
   background: none !important;
   border: none;
   cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
 }
 
 /* https://stackoverflow.com/a/21758143/379235 */
