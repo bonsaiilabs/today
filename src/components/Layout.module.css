@@ -1,7 +1,11 @@
-.footer {
+.root {
   width: 100%;
-  position: fixed;
-  bottom: 0;
   display: flex;
-  padding: 1rem 0;
+  justify-content: center;
+}
+
+.layout {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
 }
