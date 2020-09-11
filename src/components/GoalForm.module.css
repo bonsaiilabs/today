@@ -1,34 +1,34 @@
-.todoFormContainer {
+.goalFormContainer {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.todoForm {
+.goalForm {
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 50vh;
 }
 
-.todoForm h2 {
+.goalForm h2 {
   font-size: 3rem;
   font-weight: lighter;
 }
 
-.todoForm span {
+.goalForm span {
   font-size: 6rem;
   font-weight: bold;
 }
 
-.todoForm input {
+.goalForm input {
   height: 4rem;
   padding-left: 1rem;
   font-size: 1.5rem;
   border: 2px solid var(--primary);
 }
 
-.todoForm .helpText {
+.goalForm .helpText {
   width: 100%;
   text-align: end;
   color: var(--gray);

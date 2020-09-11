@@ -1,20 +1,20 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
-import todoReducer from "../reducers/todayReducer";
+import todayReducer from "../reducers/todayReducer";
 import * as storage from "redux-storage";
 // @ts-ignore
 import createEngine from "redux-storage-engine-indexed-db";
-import { ToDos } from "./types";
-import { loadToDos } from "../actions/todayActions";
+import { Goals } from "./types";
+import { loadGoals } from "../actions/todayActions";
 import headerReducer from "../reducers/headerReducer";
 
 export const rootReducer = combineReducers({
-  todos: todoReducer,
+  today: todayReducer,
   header: headerReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
 
-const engine = createEngine("h2-todos-store");
+const engine = createEngine("h2-today-store");
 const middleware = storage.createMiddleware(engine);
 
 const createStoreWithMiddleware = applyMiddleware(middleware)(createStore);
@@ -30,7 +30,7 @@ const load = storage.createLoader(engine);
 
 // @ts-ignore
 load(store).then((newState) => {
-  const persistedTodos: ToDos = newState?.todos || [];
-  console.log("Loaded State", persistedTodos);
-  store.dispatch(loadToDos(persistedTodos));
+  const persistedGoals: Goals = newState?.today || [];
+  console.log("Loaded State", persistedGoals);
+  store.dispatch(loadGoals(persistedGoals));
 });

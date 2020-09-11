@@ -5,23 +5,23 @@
   flex-direction: column;
 }
 
-.todoRow {
+.goalRow {
   display: flex;
   align-items: center;
 }
 
 /* https://stackoverflow.com/a/44626004/379235 */
-.todoRow input[type="checkbox"] {
+.goalRow input[type="checkbox"] {
   zoom: 3;
   margin-right: 1rem;
 }
 
-.todoRow span {
+.goalRow span {
   font-size: 2rem;
   margin-right: 3rem;
 }
 
-.todoRow button {
+.goalRow button {
   border: 1px solid var(--primary);
   width: 6rem;
   height: 2.2rem;

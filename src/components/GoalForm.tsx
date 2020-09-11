@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTodo } from "../actions/todayActions";
-import styles from "./ToDoForm.module.css";
+import { addGoal } from "../actions/todayActions";
+import styles from "./GoalForm.module.css";
 
-const ToDoForm: React.FC = () => {
-  const EMPTY_TODO: string = "";
-  const [todoText, setTodoText] = useState<string>(EMPTY_TODO);
+const GoalForm: React.FC = () => {
+  const EMPTY_GOAL: string = "";
+  const [goalText, setGoalText] = useState<string>(EMPTY_GOAL);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -14,26 +14,26 @@ const ToDoForm: React.FC = () => {
   });
 
   const onTextChange = (e: React.FormEvent<HTMLInputElement>): void =>
-    setTodoText(e.currentTarget.value);
+    setGoalText(e.currentTarget.value);
 
   const handleEnterKey = (e: KeyboardEvent): void => {
     if (e.key === "Enter") {
       e.preventDefault();
-      dispatch(addTodo({ text: todoText }));
-      setTodoText(EMPTY_TODO);
+      dispatch(addGoal({ text: goalText }));
+      setGoalText(EMPTY_GOAL);
     }
   };
 
   return (
-    <form className={styles.todoFormContainer}>
-      <div className={styles.todoForm}>
+    <form className={styles.goalFormContainer}>
+      <div className={styles.goalForm}>
         <h2>
           <span>3</span> things you want to accomplish today
         </h2>
         <input
           type={"text"}
           placeholder={"shoot for the moon!"}
-          value={todoText}
+          value={goalText}
           onChange={onTextChange}
           autoFocus
         />
@@ -45,4 +45,4 @@ const ToDoForm: React.FC = () => {
   );
 };
 
-export default ToDoForm;
+export default GoalForm;

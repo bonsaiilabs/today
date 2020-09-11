@@ -13,10 +13,10 @@ const App: React.FC = () => (
   </Provider>
 );
 
-function addTodos(todos: string[]) {
-  todos.forEach((todo: string) => {
-    userEvent.type(screen.getByRole("textbox"), todo);
-    expect(screen.getByRole("textbox")).toHaveValue(todo);
+function addGoals(goals: string[]) {
+  goals.forEach((goal: string) => {
+    userEvent.type(screen.getByRole("textbox"), goal);
+    expect(screen.getByRole("textbox")).toHaveValue(goal);
     userEvent.click(screen.getByRole("button"));
     expect(screen.getByRole("textbox")).toBeEmptyDOMElement();
   });
@@ -28,16 +28,16 @@ describe("When the page initially loaded", () => {
     expect(queryByText(/My Dashboard/i)).toBeInTheDocument();
   });
 
-  it("renders the form where todo can be added", () => {
+  it("renders the form where goal can be added", () => {
     const { container, getByPlaceholderText, getByRole } = render(<App />);
-    expect(container.querySelector("#todo-form")).toBeVisible();
+    expect(container.querySelector("#goal-form")).toBeVisible();
     expect(getByPlaceholderText("Enter your task")).toBeVisible();
     expect(getByRole("button")).toBeVisible();
   });
 
-  it("renders all the todos in a section", () => {
+  it("renders all the goals in a section", () => {
     const { container } = render(<App />);
-    expect(container.querySelector("#all-todos")).toBeVisible();
+    expect(container.querySelector("#all-goals")).toBeVisible();
   });
 });
 
@@ -46,45 +46,45 @@ describe("When a user interacts with the form", () => {
   it("fills the text box when user provides the input", () => {
     render(<App />);
 
-    const todo: string = "Finish the test";
-    userEvent.type(screen.getByRole("textbox"), todo);
-    expect(screen.getByRole("textbox")).toHaveValue(todo);
+    const goal: string = "Finish the test";
+    userEvent.type(screen.getByRole("textbox"), goal);
+    expect(screen.getByRole("textbox")).toHaveValue(goal);
   });
 
-  it('adds a todo when a user clicks on the "ADD" button', () => {
+  it('adds a goal when a user clicks on the "ADD" button', () => {
     render(<App />);
-    const todo: string = "first task";
-    userEvent.type(screen.getByRole("textbox"), todo);
-    expect(screen.getByRole("textbox")).toHaveValue(todo);
+    const goal: string = "first task";
+    userEvent.type(screen.getByRole("textbox"), goal);
+    expect(screen.getByRole("textbox")).toHaveValue(goal);
 
     userEvent.click(screen.getByRole("button"));
     expect(screen.getByRole("textbox")).toBeEmptyDOMElement();
   });
 
-  it("lists down all the todos", () => {
+  it("lists down all the goals", () => {
     const { container } = render(<App />);
-    const todos: string[] = ["todo 1", "todo 2", "todo 3"];
-    addTodos(todos);
+    const goals: string[] = ["goal 1", "goal 2", "goal 3"];
+    addGoals(goals);
 
-    let querySelector = container.querySelector("#all-todos");
+    let querySelector = container.querySelector("#all-goals");
     expect(querySelector).not.toBeNull();
 
     /**
-     * ToDo: The following assertions are happening since the redux store
+     * todo (h2): The following assertions are happening since the redux store
      * is not reset between tests, that's why the previous "first task"
      * appears in this test as well.
      * To solve this, we need a way as described in
      * https://testing-library.com/docs/example-react-redux
      */
 
-    // + 1 from previous add of todo
-    expect(querySelector!.childNodes.length).toBe(todos.length + 1);
+    // + 1 from previous add of goal
+    expect(querySelector!.childNodes.length).toBe(goals.length + 1);
 
-    // check todos from this test starting from first node
-    const expectedToDos = ["first task", ...todos];
+    // check goals from this test starting from first node
+    const expectedGoals = ["first task", ...goals];
     for (let i = 0; i < querySelector!.childNodes.length; i++) {
       expect(querySelector!.childNodes.item(i).lastChild!.textContent).toBe(
-        expectedToDos[i]
+        expectedGoals[i]
       );
     }
   });

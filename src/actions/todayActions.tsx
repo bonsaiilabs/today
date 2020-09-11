@@ -1,15 +1,15 @@
-import { ADD_TODO, LOAD_TODOS, ToDo, ToDos, ToDoTypes } from "../store/types";
+import { ADD_GOAL, LOAD_GOALS, Goal, Goals, GoalTypes } from "../store/types";
 
-export function addTodo(todo: ToDo): ToDoTypes {
+export function addGoal(goal: Goal): GoalTypes {
   return {
-    type: ADD_TODO,
-    payload: todo,
+    type: ADD_GOAL,
+    payload: goal,
   };
 }
 
-export function loadToDos(todos: ToDos): ToDoTypes {
+export function loadGoals(goals: Goals): GoalTypes {
   return {
-    type: LOAD_TODOS,
-    payload: todos,
+    type: LOAD_GOALS,
+    payload: goals,
   };
 }

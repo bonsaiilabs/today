@@ -1,35 +1,48 @@
 import React from "react";
-import { ToDos } from "../store/types";
+import { Goals } from "../store/types";
 import styles from "./TodaysGoals.module.css";
 
 interface TodaysGoalsProps {
-  todos: ToDos;
+  goals: Goals;
 }
 
 const MAX_GOALS_ALLOWED = 3;
 
-const TodaysGoals: ({ todos }: TodaysGoalsProps) => JSX.Element = ({
-  todos,
+const TodaysGoals: ({ goals }: TodaysGoalsProps) => JSX.Element = ({
+  goals,
 }) => {
-  const numGoalsRemaining = MAX_GOALS_ALLOWED - todos.all.length;
+  const numGoalsRemaining = MAX_GOALS_ALLOWED - goals.all.length;
   return (
     <div className={styles.goalsContainer}>
-      <div id={"all-todos"}>
-        {todos.all.map((todo, key) => (
-          <div key={key} className={styles.todoRow}>
+      <div>
+        {goals.all.map((goal, key) => (
+          <div key={key} className={styles.goalRow}>
             <input type={"checkbox"} />
-            <span>{todo.text}</span>
+            <span>{goal.text}</span>
             <button>START</button>
           </div>
         ))}
       </div>
-      <div className={styles.messageContainer}>
-        <p>
-          You can add {numGoalsRemaining} more goals for today, but it is not
-          required. <i>Less is more. Focus on completing 1 task well</i>
-        </p>
-        <button>Add a goal for today</button>
-      </div>
+      {numGoalsRemaining > 0 && (
+        <MoreGoalsAllowed remaining={numGoalsRemaining} />
+      )}
+    </div>
+  );
+};
+
+interface MoreGoalProps {
+  remaining: number;
+}
+const MoreGoalsAllowed: (remaining: MoreGoalProps) => JSX.Element = ({
+  remaining,
+}) => {
+  return (
+    <div className={styles.messageContainer}>
+      <p>
+        You can add {remaining} more goals for today, but it is not required.{" "}
+        <i>Less is more. Focus on completing 1 task well</i>
+      </p>
+      <button>Add a goal for today</button>
     </div>
   );
 };

@@ -1,25 +1,25 @@
-export interface ToDo {
+export interface Goal {
   text: string;
 }
 
-export interface ToDos {
-  all: ToDo[];
+export interface Goals {
+  all: Goal[];
 }
 
-export const ADD_TODO = "ADD_TODO";
-export const LOAD_TODOS = "LOAD_TODOS";
+export const ADD_GOAL = "ADD_GOAL";
+export const LOAD_GOALS = "LOAD_GOALS";
 
-export interface AddTodoAction {
-  type: typeof ADD_TODO;
-  payload: ToDo;
+export interface AddGoalAction {
+  type: typeof ADD_GOAL;
+  payload: Goal;
 }
 
-export interface LoadTodoAction {
-  type: typeof LOAD_TODOS;
-  payload: ToDos;
+export interface LoadGoalsAction {
+  type: typeof LOAD_GOALS;
+  payload: Goals;
 }
 
-export type ToDoTypes = AddTodoAction | LoadTodoAction;
+export type GoalTypes = AddGoalAction | LoadGoalsAction;
 
 export type Header = "Today" | "Notes";
 export const TODAY: Header = "Today";
