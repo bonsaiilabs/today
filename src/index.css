@@ -33,6 +33,7 @@
 :root {
   --primary: #6d57f1;
   --secondary: #000000;
+  --gray: #979797;
 }
 
 body {

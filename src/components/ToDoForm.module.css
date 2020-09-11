@@ -1,0 +1,35 @@
+.todoFormContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todoForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 50vh;
+}
+
+.todoForm h2 {
+  font-size: 3rem;
+  font-weight: lighter;
+}
+
+.todoForm span {
+  font-size: 6rem;
+  font-weight: bold;
+}
+
+.todoForm input {
+  height: 4rem;
+  padding-left: 1rem;
+  font-size: 1.5rem;
+  border: 2px solid var(--primary);
+}
+
+.todoForm .helpText {
+  width: 100%;
+  text-align: end;
+  color: var(--gray);
+}
