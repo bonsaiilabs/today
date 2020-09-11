@@ -3,7 +3,7 @@ import { Goals } from "../store/types";
 import styles from "./TodaysGoals.module.css";
 import { MAX_GOALS_ALLOWED } from "../reducers/todayReducer";
 import { useDispatch } from "react-redux";
-import { addNewGoal } from "../actions/todayActions";
+import { accomplishGoal, addNewGoal } from "../actions/todayActions";
 
 interface TodaysGoalsProps {
   goals: Goals;
@@ -12,13 +12,17 @@ interface TodaysGoalsProps {
 const TodaysGoals: ({ goals }: TodaysGoalsProps) => JSX.Element = ({
   goals,
 }) => {
+  const dispatch = useDispatch();
   const numGoalsRemaining = MAX_GOALS_ALLOWED - goals.all.length;
   return (
     <div className={styles.goalsContainer}>
       <div>
         {goals.all.map((goal, key) => (
           <div key={key} className={styles.goalRow}>
-            <input type={"checkbox"} />
+            <input
+              type={"checkbox"}
+              onClick={() => dispatch(accomplishGoal(goal))}
+            />
             <span>{goal.text}</span>
             <button>START</button>
           </div>

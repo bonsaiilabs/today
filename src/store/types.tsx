@@ -10,6 +10,7 @@ export interface Goals {
 export const ADD_GOAL = "ADD_GOAL";
 export const ADD_NEW_GOAL = "ADD_NEW_GOAL";
 export const LOAD_GOALS = "LOAD_GOALS";
+export const ACCOMPLISHED_GOAL = "ACCOMPLISHED_GOAL";
 
 export interface AddGoalAction {
   type: typeof ADD_GOAL;
@@ -25,7 +26,16 @@ export interface LoadGoalsAction {
   payload: Goals;
 }
 
-export type GoalTypes = AddGoalAction | AddNewGoalAction | LoadGoalsAction;
+export interface GoalCompletedAction {
+  type: typeof ACCOMPLISHED_GOAL;
+  payload: Goal;
+}
+
+export type GoalTypes =
+  | AddGoalAction
+  | AddNewGoalAction
+  | LoadGoalsAction
+  | GoalCompletedAction;
 
 export const GOAL_HEADER: Header = "Goals";
 export const NOTES_HEADER: Header = "Notes";

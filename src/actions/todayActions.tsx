@@ -5,6 +5,7 @@ import {
   Goals,
   GoalTypes,
   ADD_NEW_GOAL,
+  ACCOMPLISHED_GOAL,
 } from "../store/types";
 
 export function addGoal(goal: Goal): GoalTypes {
@@ -24,5 +25,12 @@ export function loadGoals(goals: Goals): GoalTypes {
   return {
     type: LOAD_GOALS,
     payload: goals,
+  };
+}
+
+export function accomplishGoal(goal: Goal): GoalTypes {
+  return {
+    type: ACCOMPLISHED_GOAL,
+    payload: goal,
   };
 }
