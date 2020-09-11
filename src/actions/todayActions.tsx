@@ -1,9 +1,22 @@
-import { ADD_GOAL, LOAD_GOALS, Goal, Goals, GoalTypes } from "../store/types";
+import {
+  ADD_GOAL,
+  LOAD_GOALS,
+  Goal,
+  Goals,
+  GoalTypes,
+  ADD_NEW_GOAL,
+} from "../store/types";
 
 export function addGoal(goal: Goal): GoalTypes {
   return {
     type: ADD_GOAL,
     payload: goal,
+  };
+}
+
+export function addNewGoal(): GoalTypes {
+  return {
+    type: ADD_NEW_GOAL,
   };
 }
 

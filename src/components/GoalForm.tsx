@@ -3,7 +3,12 @@ import { useDispatch } from "react-redux";
 import { addGoal } from "../actions/todayActions";
 import styles from "./GoalForm.module.css";
 
-const GoalForm: React.FC = () => {
+interface GoalFormProps {
+  remaining: number;
+}
+const GoalForm: ({ remaining }: GoalFormProps) => JSX.Element = ({
+  remaining,
+}) => {
   const EMPTY_GOAL: string = "";
   const [goalText, setGoalText] = useState<string>(EMPTY_GOAL);
   const dispatch = useDispatch();
@@ -28,7 +33,7 @@ const GoalForm: React.FC = () => {
     <form className={styles.goalFormContainer}>
       <div className={styles.goalForm}>
         <h2>
-          <span>3</span> things you want to accomplish today
+          <span>{remaining}</span> things you want to accomplish today
         </h2>
         <input
           type={"text"}

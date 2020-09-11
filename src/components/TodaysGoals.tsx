@@ -1,12 +1,13 @@
 import React from "react";
 import { Goals } from "../store/types";
 import styles from "./TodaysGoals.module.css";
+import { MAX_GOALS_ALLOWED } from "../reducers/todayReducer";
+import { useDispatch } from "react-redux";
+import { addNewGoal } from "../actions/todayActions";
 
 interface TodaysGoalsProps {
   goals: Goals;
 }
-
-const MAX_GOALS_ALLOWED = 3;
 
 const TodaysGoals: ({ goals }: TodaysGoalsProps) => JSX.Element = ({
   goals,
@@ -33,16 +34,20 @@ const TodaysGoals: ({ goals }: TodaysGoalsProps) => JSX.Element = ({
 interface MoreGoalProps {
   remaining: number;
 }
+
 const MoreGoalsAllowed: (remaining: MoreGoalProps) => JSX.Element = ({
   remaining,
 }) => {
+  const dispatch = useDispatch();
   return (
     <div className={styles.messageContainer}>
       <p>
         You can add {remaining} more goals for today, but it is not required.{" "}
         <i>Less is more. Focus on completing 1 task well</i>
       </p>
-      <button>Add a goal for today</button>
+      <button onClick={() => dispatch(addNewGoal())}>
+        Add a goal for today
+      </button>
     </div>
   );
 };
