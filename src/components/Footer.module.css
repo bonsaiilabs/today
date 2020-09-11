@@ -5,3 +5,10 @@
   display: flex;
   padding: 1rem 0;
 }
+
+.footer button {
+  color: var(--primary);
+  font-weight: lighter;
+  font-size: 0.9rem;
+  width: 10%;
+}
