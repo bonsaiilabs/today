@@ -25,8 +25,3 @@ button {
   font-weight: 600;
   font-size: 1rem;
 }
-
-/* https://stackoverflow.com/a/21758143/379235 */
-button:focus {
-  outline: 0;
-}

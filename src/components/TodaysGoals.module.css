@@ -1,8 +1,41 @@
 .goalsContainer {
-  background: aqua;
+  background: #00ffff;
   width: 100%;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.todoRow {
   display: flex;
   align-items: center;
-  justify-content: center;
+}
+
+/* https://stackoverflow.com/a/44626004/379235 */
+.todoRow input[type="checkbox"] {
+  zoom: 3;
+  margin-right: 1rem;
+}
+
+.todoRow span {
+  font-size: 2rem;
+  margin-right: 3rem;
+}
+
+.todoRow button {
+  border: 1px solid var(--primary);
+  width: 6rem;
+  height: 2.2rem;
+  border-radius: 5px;
+  font-weight: lighter;
+  font-size: 1rem;
+  color: var(--primary);
+}
+
+.messageContainer {
+  margin-top: 5rem;
+}
+
+.messageContainer button {
+  width: inherit;
+  color: var(--primary);
 }
