@@ -1,5 +1,5 @@
 .goalsContainer {
-  background: #00ffff;
+  /*background: #00ffff;*/
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -32,10 +32,17 @@
 }
 
 .messageContainer {
-  margin-top: 5rem;
+  margin-top: 4rem;
 }
 
-.messageContainer button {
+.goalsAllowed button {
   width: inherit;
   color: var(--primary);
+}
+
+.goalsAllowed .helpText {
+  color: var(--gray);
+  font-style: italic;
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
 }
