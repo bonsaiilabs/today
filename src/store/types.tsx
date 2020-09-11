@@ -27,10 +27,10 @@ export interface LoadGoalsAction {
 
 export type GoalTypes = AddGoalAction | AddNewGoalAction | LoadGoalsAction;
 
-export type Header = "Today" | "Notes";
-export const TODAY: Header = "Today";
-export const NOTES: Header = "Notes";
-export const Headers: Header[] = [TODAY, NOTES];
+export const GOAL_HEADER: Header = "Goals";
+export const NOTES_HEADER: Header = "Notes";
+export type Header = "Goals" | "Notes";
+export const Headers: Header[] = [GOAL_HEADER, NOTES_HEADER];
 
 export interface HeaderChangeAction {
   type: Header;

@@ -1,12 +1,17 @@
-import { Header, HeaderChangeAction, NOTES, TODAY } from "../store/types";
+import {
+  Header,
+  HeaderChangeAction,
+  NOTES_HEADER,
+  GOAL_HEADER,
+} from "../store/types";
 
-export const initialState: Header = TODAY;
+export const initialState: Header = GOAL_HEADER;
 
 export default (state = initialState, action: HeaderChangeAction) => {
   switch (action.type) {
-    case TODAY:
+    case GOAL_HEADER:
       return action.type;
-    case NOTES:
+    case NOTES_HEADER:
       return action.type;
     default:
       return state;
