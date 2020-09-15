@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Goals } from "../store/types";
 import styles from "./TodaysGoals.module.css";
 import { MAX_GOALS_ALLOWED } from "../reducers/todayReducer";
 import { useDispatch } from "react-redux";
 import { accomplishGoal, addNewGoal } from "../actions/todayActions";
+import { Trash2 } from "react-feather";
 
 interface TodaysGoalsProps {
   goals: Goals;
@@ -14,6 +15,13 @@ const TodaysGoals: ({ goals }: TodaysGoalsProps) => JSX.Element = ({
 }) => {
   const dispatch = useDispatch();
   const numGoalsRemaining = MAX_GOALS_ALLOWED - goals.all.length;
+  const [showDeleteDialog, setShowDeleteDialog] = useState<boolean>(false);
+
+  const handleDelete = () => {
+    setShowDeleteDialog(false);
+    console.log("deleting");
+  };
+
   return (
     <div className={styles.goalsContainer}>
       <div>
@@ -25,8 +33,23 @@ const TodaysGoals: ({ goals }: TodaysGoalsProps) => JSX.Element = ({
             />
             <span>{goal.text}</span>
             <button>START</button>
+            <div
+              className={styles.delete}
+              onClick={() => setShowDeleteDialog(true)}
+            >
+              <Trash2 className={styles.deleteIcon} size={20} />
+            </div>
           </div>
         ))}
+        {showDeleteDialog && (
+          <Dialog
+            onCancel={() => setShowDeleteDialog(false)}
+            onConfirm={handleDelete}
+            message={
+              "This will delete the goal. This action is irreversible. Are you sure?"
+            }
+          />
+        )}
       </div>
       <div className={styles.messageContainer}>
         {numGoalsRemaining > 0 && (
@@ -74,6 +97,32 @@ const NoMoreGoalsAllowed: React.FC = () => {
       achieve these goals. Focus on one goal at a time and complete it before
       starting or adding another one.
     </p>
+  );
+};
+
+interface DialogProps {
+  onConfirm: () => void;
+  onCancel: () => void;
+  message: string;
+}
+
+const Dialog: (props: DialogProps) => JSX.Element = ({
+  message,
+  onCancel,
+  onConfirm,
+}: DialogProps) => {
+  return (
+    <div className={styles.dialogContainer}>
+      <dialog open>
+        <form method="dialog">
+          <p>{message}</p>
+          <div className={styles.dialogActions}>
+            <button onClick={onCancel}>Cancel</button>
+            <button onClick={onConfirm}>Confirm</button>
+          </div>
+        </form>
+      </dialog>
+    </div>
   );
 };
 
