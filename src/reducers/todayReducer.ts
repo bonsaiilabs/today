@@ -2,6 +2,7 @@ import {
   ACCOMPLISHED_GOAL,
   ADD_GOAL,
   ADD_NEW_GOAL,
+  DELETE_GOAL,
   Goals,
   GoalTypes,
   LOAD_GOALS,
@@ -19,6 +20,7 @@ export default (state = initialState, action: GoalTypes) => {
     case ADD_NEW_GOAL: {
       return { all: state.all, addMore: true };
     }
+    case DELETE_GOAL:
     case ACCOMPLISHED_GOAL: {
       const remainingGoals = state.all.filter(
         (goal) => goal.text !== action.payload.text

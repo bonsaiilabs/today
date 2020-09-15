@@ -8,12 +8,18 @@ export interface Goals {
 }
 
 export const ADD_GOAL = "ADD_GOAL";
+export const DELETE_GOAL = "DELETE_GOAL";
 export const ADD_NEW_GOAL = "ADD_NEW_GOAL";
 export const LOAD_GOALS = "LOAD_GOALS";
 export const ACCOMPLISHED_GOAL = "ACCOMPLISHED_GOAL";
 
 export interface AddGoalAction {
   type: typeof ADD_GOAL;
+  payload: Goal;
+}
+
+export interface DeleteGoalAction {
+  type: typeof DELETE_GOAL;
   payload: Goal;
 }
 
@@ -33,6 +39,7 @@ export interface GoalCompletedAction {
 
 export type GoalTypes =
   | AddGoalAction
+  | DeleteGoalAction
   | AddNewGoalAction
   | LoadGoalsAction
   | GoalCompletedAction;

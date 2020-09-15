@@ -1,16 +1,24 @@
 import {
+  ACCOMPLISHED_GOAL,
   ADD_GOAL,
-  LOAD_GOALS,
+  ADD_NEW_GOAL,
+  DELETE_GOAL,
   Goal,
   Goals,
   GoalTypes,
-  ADD_NEW_GOAL,
-  ACCOMPLISHED_GOAL,
+  LOAD_GOALS,
 } from "../store/types";
 
 export function addGoal(goal: Goal): GoalTypes {
   return {
     type: ADD_GOAL,
+    payload: goal,
+  };
+}
+
+export function deleteGoal(goal: Goal): GoalTypes {
+  return {
+    type: DELETE_GOAL,
     payload: goal,
   };
 }

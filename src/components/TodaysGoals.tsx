@@ -1,25 +1,41 @@
 import React, { useEffect, useState } from "react";
-import { Goals } from "../store/types";
+import { Goal, Goals } from "../store/types";
 import styles from "./TodaysGoals.module.css";
 import { MAX_GOALS_ALLOWED } from "../reducers/todayReducer";
 import { useDispatch } from "react-redux";
-import { accomplishGoal, addNewGoal } from "../actions/todayActions";
+import {
+  accomplishGoal,
+  addNewGoal,
+  deleteGoal,
+} from "../actions/todayActions";
 import { Trash2 } from "react-feather";
 
 interface TodaysGoalsProps {
   goals: Goals;
 }
 
+interface DeleteWarning {
+  goal: Goal | null;
+  showDialog: boolean;
+}
+
+const DeleteWarningInitialState: DeleteWarning = {
+  goal: null,
+  showDialog: false,
+};
+
 const TodaysGoals: ({ goals }: TodaysGoalsProps) => JSX.Element = ({
   goals,
 }) => {
   const dispatch = useDispatch();
   const numGoalsRemaining = MAX_GOALS_ALLOWED - goals.all.length;
-  const [showDeleteDialog, setShowDeleteDialog] = useState<boolean>(false);
+  const [deleteWarning, setDeleteWarningDialog] = useState<DeleteWarning>(
+    DeleteWarningInitialState
+  );
 
-  const handleDelete = () => {
-    setShowDeleteDialog(false);
-    console.log("deleting");
+  const handleDelete = (goal: Goal) => {
+    setDeleteWarningDialog(DeleteWarningInitialState);
+    dispatch(deleteGoal(goal));
   };
 
   return (
@@ -35,16 +51,16 @@ const TodaysGoals: ({ goals }: TodaysGoalsProps) => JSX.Element = ({
             <button>START</button>
             <div
               className={styles.delete}
-              onClick={() => setShowDeleteDialog(true)}
+              onClick={() => setDeleteWarningDialog({ goal, showDialog: true })}
             >
               <Trash2 className={styles.deleteIcon} size={20} />
             </div>
           </div>
         ))}
-        {showDeleteDialog && (
+        {deleteWarning.showDialog && (
           <Dialog
-            onCancel={() => setShowDeleteDialog(false)}
-            onConfirm={handleDelete}
+            onCancel={() => setDeleteWarningDialog(DeleteWarningInitialState)}
+            onConfirm={() => handleDelete(deleteWarning.goal as Goal)}
             message={
               "This will delete the goal. This action is irreversible. Are you sure?"
             }
