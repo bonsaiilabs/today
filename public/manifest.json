@@ -6,5 +6,11 @@
   "chrome_url_overrides" : {
     "newtab": "index.html"
   },
+  "icons": {
+    "16": "today-16_x_16.png",
+    "32": "today-32_x_32.png",
+    "48": "today-48_x_48.png",
+    "128": "today-128_x_128.png"
+  },
   "content_security_policy": "script-src 'self' 'sha256-vuY/qXne9Kjfvjc/5qi4VTj1wd1nnWmf1nvg0hzdn/8='; object-src 'self'"
 }
