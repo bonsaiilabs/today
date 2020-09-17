@@ -44,10 +44,10 @@ export type GoalTypes =
   | LoadGoalsAction
   | GoalCompletedAction;
 
-export const GOAL_HEADER: Header = "Goals";
+export const PRIORITIES_HEADER: Header = "Priorities";
 export const NOTES_HEADER: Header = "Notes";
-export type Header = "Goals" | "Notes";
-export const Headers: Header[] = [GOAL_HEADER, NOTES_HEADER];
+export type Header = "Priorities" | "Notes";
+export const Headers: Header[] = [PRIORITIES_HEADER, NOTES_HEADER];
 
 export interface HeaderChangeAction {
   type: Header;

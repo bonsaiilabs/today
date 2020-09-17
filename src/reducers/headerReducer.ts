@@ -2,14 +2,14 @@ import {
   Header,
   HeaderChangeAction,
   NOTES_HEADER,
-  GOAL_HEADER,
+  PRIORITIES_HEADER,
 } from "../store/types";
 
-export const initialState: Header = GOAL_HEADER;
+export const initialState: Header = PRIORITIES_HEADER;
 
 export default (state = initialState, action: HeaderChangeAction) => {
   switch (action.type) {
-    case GOAL_HEADER:
+    case PRIORITIES_HEADER:
       return action.type;
     case NOTES_HEADER:
       return action.type;

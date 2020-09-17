@@ -66,12 +66,12 @@ const TodaysGoals: ({ goals }: TodaysGoalsProps) => JSX.Element = ({
             }
           />
         )}
-      </div>
-      <div className={styles.messageContainer}>
-        {numGoalsRemaining > 0 && (
-          <MoreGoalsAllowed remaining={numGoalsRemaining} />
-        )}
-        {numGoalsRemaining === 0 && <NoMoreGoalsAllowed />}
+        <div className={styles.messageContainer}>
+          {numGoalsRemaining > 0 && (
+            <MoreGoalsAllowed remaining={numGoalsRemaining} />
+          )}
+          {numGoalsRemaining === 0 && <NoMoreGoalsAllowed />}
+        </div>
       </div>
     </div>
   );
@@ -94,14 +94,15 @@ const MoreGoalsAllowed: (remaining: MoreGoalProps) => JSX.Element = ({
 
   return (
     <div className={styles.goalsAllowed}>
+      <div>
+        <button onClick={() => dispatch(addNewGoal())}>+ Add a priority</button>
+      </div>
+      <div className={styles.helpText}>or press any key to add</div>
+
       <p>
         You can add {remaining} more goals for today, but it is not required.{" "}
         <i>Less is more. Focus on completing 1 task well</i>
       </p>
-      <button onClick={() => dispatch(addNewGoal())}>
-        Add a goal for today
-      </button>
-      <span className={styles.helpText}>(or press any key to add)</span>
     </div>
   );
 };
