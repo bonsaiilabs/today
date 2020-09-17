@@ -38,6 +38,14 @@ const TodaysGoals: ({ goals }: TodaysGoalsProps) => JSX.Element = ({
     dispatch(deleteGoal(goal));
   };
 
+  const handleAccomplished = (
+    e: React.MouseEvent<HTMLInputElement>,
+    goal: Goal
+  ) => {
+    e.currentTarget.checked = !e.currentTarget.checked;
+    dispatch(accomplishGoal(goal));
+  };
+
   return (
     <div className={styles.goalsContainer}>
       <div>
@@ -45,7 +53,7 @@ const TodaysGoals: ({ goals }: TodaysGoalsProps) => JSX.Element = ({
           <div key={key} className={styles.goalRow}>
             <input
               type={"checkbox"}
-              onClick={() => dispatch(accomplishGoal(goal))}
+              onClick={(e) => handleAccomplished(e, goal)}
             />
             <span>{goal.text}</span>
             <button>START</button>
